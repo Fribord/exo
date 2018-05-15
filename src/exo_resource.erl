@@ -118,9 +118,9 @@ acquire(Ref, Timeout)
 	   true -> Timeout + 1000
 	end,
     receive
-	Reply -> Reply
-    after T ->
-	    {resouce, error, not_available}
+	{resource, _Result, _} = Reply -> Reply
+    after
+	T -> {resouce, error, not_available}
     end.
 
 %%--------------------------------------------------------------------
