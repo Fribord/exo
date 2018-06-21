@@ -56,9 +56,9 @@
 -record(ctx,
 	{
 	  state = init::init | connected | disconnected,
-	  client::binary(),
+	  client::binary() | undefined,
 	  keep_alive = 0::integer(),
-	  keep_alive_timer::reference(),
+	  keep_alive_timer::reference() | undefined,
 	  topics = []::list(),
 	  access::list(access()),
 	  mqtt_handler::term(), 
